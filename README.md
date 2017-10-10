@@ -1,2 +1,2 @@
-# 101_programming_foundations
+# 101 Programming Foundations
 Assignments and exercises solutions from course 101
