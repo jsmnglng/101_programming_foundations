@@ -1,0 +1,76 @@
+Write out pseudo-code (both casual and formal)
+
+1. A method that returns the sum of two integers
+
+Casual:
+Given two integers
+
+-add the two integers together
+-save the sum of the two integers to the result value
+-return the result value
+
+Formal:
+START
+
+# Given two integers called "number1" and "number2"
+
+SET result = number1 + number2
+
+PRINT result
+
+END
+
+
+2. A method that takes an array of strings, and returns a string that is all those strings concatenated together
+Casual:
+Given an array of strings
+
+Iterate through each elements of the array
+ - save the array of strings to a new string
+
+return the new string
+
+Formal:
+START
+
+# Given an array of strings
+
+SET concat_string = empty string
+
+WHILE array of strings not empty
+  move elements to concat_string
+
+PRINT concat_string
+
+END
+
+
+3. A method that takes an array of integers, and returns a new array with every other element
+Casual:
+Given an array of integers
+
+Iterate through each element
+  - if element is divisible by 2
+    - move element to a new array
+  - otherwise,
+    - go to the next iteration
+
+After iterating through the array, return the new array
+
+Formal:
+START
+
+# Given an array of integers called "numbers"
+
+SET new_array = empty array
+SET iterator = 1
+
+WHILE iterator < length of numbers
+  IF element of numbers % 2 = 0
+    add element to new_array
+
+  iterator = iterator + 1
+  
+PRINT new_array
+
+END
