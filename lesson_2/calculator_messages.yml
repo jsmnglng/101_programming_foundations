@@ -1,0 +1,18 @@
+en:
+  welcome: "Welcome to Calculator! Enter your name:"
+  valid_name: "Make sure to enter a valid name."
+  first_number: "What's the first number?"
+  valid_number: "Hmm... that doesn't look like a valid number."
+  second_number: "What's the second number?"
+  valid_operator: "Must choose 1, 2, 3, or 4"
+  calculate_again: "Do you want to perform another calculation? (Y to calculate again)"
+  goodbye: "Thank you for using the calculator. Good bye!"
+tl:
+  welcome: "Maligayang Pagdating sa Calculator! Ilaad ang iyong pangalan:"
+  valid_name: "Tiyaking wasto ang inilaad na pangalan."
+  first_number: "Ano ang unang numero?"
+  valid_number: "Hmm... Hindi ata wasto ang inilaad na numero."
+  second_number: "Ano ang pangalawang numero?"
+  valid_operator: "Dapat pumili kung 1, 2, 3, o 4"
+  calculate_again: "Gusto mo bang magsagawa ng isa pang pagkalkula? (Y para magkalkula ulit)"
+  goodbye: "Maraming salamat sa pag-gamit ng Calculator. Paalam!"
