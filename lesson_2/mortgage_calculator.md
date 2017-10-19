@@ -41,26 +41,62 @@
 ```
 START
 
-GET loan amount
-GET interest rate
-GET duration in years
+# Obtain user input: loan amount, interest rate, duration in years
+# Validate loan amount
+LOOP
+  GET loan_amount
 
-# Calculate for monthly interest rate
+  IF valid_number?(loan_amount)
+    exit loop
+  ELSE
+    PRINT "Must enter positive number."
+
+# Validate interest rate
+LOOP
+  GET interest_rate
+
+  IF valid_number?(interest_rate)
+    exit loop
+  ELSE
+    PRINT "Must enter positive number."
+
+# Validate duration in years    
+LOOP
+  GET duration in years
+
+  IF valid_number?(loan_amount)
+    exit loop
+  ELSE
+    PRINT "Must enter positive number."
+
+# Calculate for monthly_interest_rate
 annual_interest_rate = interest_rate / 100
 monthly_interest_rate = annual_interest_rate / 12
 
 # Calculate for duration in months
-months = years * 12
+duration_in_months = duration_in_years * 12
 
 # Calculate monthly payment
-monthly_payment = amount * (monthly_interest_rate / (1 - (1 +
-                  monthly_interest_rate)**-months))
+monthly_payment = loan_amount * (monthly_interest_rate / (1 - (1 +
+                  monthly_interest_rate)**-duration_in_months))
 
-PRINT monthly payment
+PRINT monthly_payment
+
+# Ask for another calculation
+GET answer
+
+IF answer starts with == 'y'
+  restart main loop
+ELSE
+  exit main loop
+
+PRINT Goodbye
 
 END
 ```
 
 ### Revisions
-* Modified variable names
+* Changed `Float#round` to `Kernel#format`
 * Input number validation
+* Extracted messages (`prompt()`) to a configuration file
+* Removed optional parentheses
