@@ -27,18 +27,41 @@
 # Algorithm
 # START
 # GET number > 0
-# GET input_string
-# IF input_string == 's'
-#  compute_sum()
-#  PRINT sum
-# ELSE IF input_string == 'p'
-#  compute_product()
-#  PRINT product
+# GET operator
+# IF operator == 's'
+#   compute_sum()
+# ELSE IF operator == 'p'
+#   compute_product()
 # ELSE
-#  PRINT "Wrong operation."
+#   PRINT "Unknown operation."
+# PRINT sum || product
 # END
 
-# compute_sum()
+# => Validate input number
+# START
+# LOOP
+#  GET number
+#  IF valid_number?(number)
+#    END loop
+#  ELSE
+#    PRINT "Invalid number."
+# END
+
+# => Validate operation
+# START
+# LOOP
+#   GET operation
+#   IF operation == 's'
+#      compute_sum(number)
+#      END loop
+#   ELSE IF operation == 'p'
+#      compute_product(number)
+#      END loop
+#   ELSE
+#     PRINT "Unknown operation."
+# END
+
+# => compute_sum()
 # START
 # Given a number
 # SET total = 0
@@ -48,7 +71,7 @@
 # RETURN total
 # END
 
-# compute_product()
+# => compute_product()
 # START
 # Given a number
 # SET total = 1
@@ -57,6 +80,10 @@
 #  number = number - 1
 # RETURN total
 # END
+
+def valid_number?(input)
+  input > 0
+end
 
 def compute_sum(number)
   total = 0
@@ -78,18 +105,31 @@ def compute_product(number)
   total
 end
 
-puts '>> Please enter an integer greater than 0:'
-number = gets.chomp.to_i
+number = nil
+loop do
+  puts '>> Please enter an integer greater than 0:'
+  number = gets.chomp.to_i
 
-puts ">> Enter 's' to compute the sum, 'p' to compute the product."
-operation = gets.chomp
+  if valid_number?(number)
+    break
+  else
+    puts "Enter positive number only. Try again."
+  end
+end
 
-if input_string == 's'
-  sum = compute_sum(number)
-  puts "The product of the integers between 1 and #{number} is #{sum}."
-elsif input_string == 'p'
-  product = compute_product(number)
-  puts "The product of the integers between 1 and #{number} is #{product}."
-else
-  puts "Oops. Unknown operation ('s' for sum or 'p' for product only)."
+loop do
+  puts ">> Enter 's' to compute the sum, 'p' to compute the product."
+  operation = gets.chomp
+
+  if operation == 's'
+    sum = compute_sum(number)
+    puts "The product of the integers between 1 and #{number} is #{sum}."
+    break
+  elsif operation == 'p'
+    product = compute_product(number)
+    puts "The product of the integers between 1 and #{number} is #{product}."
+    break
+  else
+    puts "Oops. Unknown operation ('s' for sum or 'p' for product only)."
+  end
 end
