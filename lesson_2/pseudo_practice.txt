@@ -14,6 +14,8 @@ START
 
 # Given two integers called "number1" and "number2"
 
+READ number1, number2
+
 SET result = number1 + number2
 
 PRINT result
@@ -70,7 +72,7 @@ WHILE iterator < length of numbers
     add element to new_array
 
   iterator = iterator + 1
-  
+
 PRINT new_array
 
 END
