@@ -23,7 +23,7 @@
 => Welcome to Mortgage Calculator!
 => -------------------------------------------
 => What is the loan amount?
-100,000
+100000
 => What is the interest rate?
 => (Example: 5 for 5% or 2.5 for 2.5%)
 5
