@@ -87,7 +87,8 @@ loop do # main loop
   monthly_payment = compute_monthly_pay(amount, monthly_interest_rate, months)
 
   # Display result
-  prompt("Your monthly payment is: $#{format('%02.2f', monthly_payment)}")
+  prompt(MESSAGES['result'] %
+    { yml_result: format('%02.2f', monthly_payment).to_s })
 
   # Ask for another calculation
   prompt(MESSAGES['calculate_again'])
