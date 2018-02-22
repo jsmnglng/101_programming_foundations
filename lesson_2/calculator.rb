@@ -1,7 +1,4 @@
-# Program: Calculator
-
-LANGUAGE = 'tl'
-
+LANGUAGE = 'en'
 require 'yaml'
 MESSAGES = YAML.load_file('calculator_messages.yml')
 # puts MESSAGES.inspect
@@ -10,101 +7,111 @@ def messages(message, lang='en')
   MESSAGES[lang][message]
 end
 
-def prompt(key)
-  message = messages(key, LANGUAGE)
-  Kernel.puts "=> #{message}"
+def prompt(message)
+  Kernel.puts("=> #{message}")
 end
 
-def integer?(input)
-  input.to_i.to_s == input
+def integer?(num)
+  num.to_i.to_s == num
 end
 
-def float?(input)
-  input.to_f.to_s == input
+def float?(num)
+  num.to_f.to_s == num
 end
 
-def valid_number?(input)
-  integer?(input) || float?(input)
+def valid_number?(num)
+  integer?(num) || float?(num)
 end
 
 def operation_to_message(op)
   word = case op
-          when '1'
-            'Adding'
-          when '2'
-            'Subtracting'
-          when '3'
-            'Multiplying'
-          when '4'
-            'Dividing'
-          end
+         when '1'
+           'Adding'
+         when '2'
+           'Subtracting'
+         when '3'
+           'Multiplying'
+         when '4'
+           'Dividing'
+         end
 
   word
 end
 
-prompt 'welcome'
+prompt(messages('welcome', LANGUAGE))
 
 name = ''
 loop do
   name = Kernel.gets.chomp
 
   if name.empty?
-    prompt 'valid_name'
+    prompt(messages('empty_name', LANGUAGE))
   else
     break
   end
 end
 
-Kernel.puts "Hi #{name}!"
+prompt(messages('greet_name', LANGUAGE) % { yml_name: name })
 
 loop do # main loop
   number1 = ''
-  loop do
-    prompt 'first_number'
-    number1 = Kernel.gets.chomp
-
-    if valid_number?(number1)
-      break
-    else
-      prompt 'valid_number'
-    end
-  end
-
   number2 = ''
-  loop do
-    prompt 'second_number'
-    number2 = Kernel.gets.chomp
-
-    if valid_number?(number2)
-      break
-    else
-      prompt 'valid_number'
-    end
-  end
-
-  operator_prompt = <<-MSG
-    What operation would you like to perform?
-    1) add
-    2) subtract
-    3) multiply
-    4) divide
-  MSG
-
-  Kernel.puts operator_prompt
-
   operator = ''
-  loop do
-    operator = Kernel.gets.chomp
 
-    if %w(1 2 3 4).include? operator
-      break
+  loop do # catching dividing something by 0 loop
+    loop do # number1 validation loop
+      prompt(messages('first_number', LANGUAGE))
+      number1 = Kernel.gets.chomp
+
+      if valid_number?(number1)
+        break
+      else
+        prompt(messages('invalid_number', LANGUAGE))
+      end
+    end
+
+    loop do # number2 validation loop
+      prompt(messages('second_number', LANGUAGE))
+      number2 = Kernel.gets.chomp
+
+      if valid_number?(number2)
+        break
+      else
+        prompt(messages('invalid_number', LANGUAGE))
+      end
+    end
+
+    operator_prompt = <<-MSG
+      What operation would you like to perform?
+      1) add
+      2) subtract
+      3) multiply
+      4) divide
+    MSG
+
+    prompt(messages('choose_operator', LANGUAGE) % { yml_op: operator_prompt })
+
+    loop do # operator validation loop
+      operator = Kernel.gets.chomp
+
+      if %w(1 2 3 4).include?(operator)
+        break
+      else
+        prompt(messages('invalid_operator', LANGUAGE))
+      end
+    end
+
+    if operator == '4'
+      break if number2 != '0'
+      # prompt("You cannot divide #{number1} by 0. Try again...")
+      prompt(messages('zero_input', LANGUAGE) % { yml_number1: number1 })
     else
-      prompt 'valid_operator'
+      break
     end
   end
 
-  # a little of being dynamic
-  Kernel.puts "#{operation_to_message(operator)} the two numbers..."
+  prompt(messages('computing_message', LANGUAGE) % { yml_op_message:
+         operation_to_message(operator) })
 
   result = case operator
            when '1'
@@ -117,11 +124,11 @@ loop do # main loop
              number1.to_f / number2.to_f
            end
 
-  Kernel.puts "The result is #{result}"
+  prompt(messages('result', LANGUAGE) % { yml_result: result })
 
-  prompt 'calculate_again'
+  prompt(messages('calculate_again', LANGUAGE))
   answer = Kernel.gets.chomp
-  break unless answer.downcase.start_with? 'y'
+  break unless answer.downcase.start_with?('y')
 end
 
-prompt 'goodbye'
+prompt(messages('goodbye_message', LANGUAGE))
