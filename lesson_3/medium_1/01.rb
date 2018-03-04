@@ -9,4 +9,15 @@
 #  The Flintstones Rock!
 #   The Flintstones Rock!
 
+counter = 0
+space = ""
+string = "The Flintstones Rock!"
+
+while counter < 10
+  puts space + string
+  space += " "
+  counter += 1
+end
+
+# or
 10.times { |number|  puts (' ' * number) + "The Flintstones Rock!" }
