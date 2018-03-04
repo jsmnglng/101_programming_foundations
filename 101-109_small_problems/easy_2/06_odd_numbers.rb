@@ -1,50 +1,67 @@
-# Print all odd numbers from 1 to 99, inclusive. All numbers should be
-# printed on separate lines.
-
-# Understanding the Problem
-# - Input: integer
-# - Output: integer
-
-# Example Run
-# 1
-# 3
-# 5
-# ...
-# 99
-
-# Data Structure
-# - Number
-
-# Algorithm
-# START
-# SET value = 1
-# WHILE value <= 99
-#   PRINT value
-#   value = value + 2
-# END
+# Print all odd numbers from 1 to 99, inclusive. All numbers should be printed
+# on separate lines.
 
 value = 1
-
 while value <= 99
   puts value
   value += 2
 end
 
-# Repeat this exercise with a technique different from the one you just
-# used, and different from the solution shown above. You may want to explore
-# the use Integer#upto or Array#select methods, or maybe use Integer#odd?
+# ---------------------------
+# PROBLEM SOLVING APPROACH
+# ---------------------------
 
-# Integer#upto
-1.upto(99) { |i| puts i if i % 2 == 1 }
+# UNDERSTANDING THE PROBLEM
+# Input: number
+# -1 to 99
+# Output: number
+# -odd numbers from 1 to 99
+# Rules:
+# -print all odd numbers inclusive
+# -all numbers should be printed on separate lines
 
-# Array#select
-(1..99).select { |i| puts i if i % 2 != 0 }
+# EXAMPLE RUN
+# 1
+# 3
+# 5
+# 7
+# ...
+# 97
+# 99
 
-# Integer#odd
-value = 1
+# DATA STRUCTURE
+# number
 
-loop do
-  puts value if value.odd?
-  break if value == 99
-  value += 1
+# ALGORITHM
+# 1. Create a variable called 'number' that will contain the first current
+#    number (which is 1)
+# 2. While 'number' is less than 100
+#    2.1. Validate if number is odd
+#    2.2. If number is odd, print the number
+#    2.3. add 1 to number
+
+# CODE
+number = 1
+while number < 100
+  puts number if number % 2 == 1
+  number += 1
 end
+
+# or
+value = 1
+while value <= 99
+  puts value
+  value += 2
+end
+
+# FURTHER EXPLORATION
+# Repeat this exercise with a technique different from the one you just used,
+# and different from the solution shown above. You may want to explore the use
+# Integer#upto or Array#select methods, or maybe use Integer#odd?
+
+numbers = (1..99).select { |number| number.odd? }
+puts numbers
+
+1.upto(99) { |n| puts n if n.odd? }
+
+(1..99).each { |num| puts num if num.odd? }

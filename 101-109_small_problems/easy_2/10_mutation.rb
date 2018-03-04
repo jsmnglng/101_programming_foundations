@@ -19,9 +19,9 @@ puts array2
 
 # array2 was affected with the modification of array1 because first of all,
 # the first each loop copied the elements from array1 to array2 so both
-# arrays both arrays refer to the same elements and that leaves us when we
-# modify either array1 or array2, their elements will get affected because
-# again, both arrays points to the same String objects.
+# arrays refer to the same elements and that leaves us when we modify either
+# array1 or array2, their elements will get affected because again, both arrays
+# reference the same String objects.
 
 # Further Exploration:
 # How can this feature of ruby get you in trouble? How can you avoid it?
