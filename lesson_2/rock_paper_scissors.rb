@@ -1,3 +1,5 @@
+# Program: Rock, Paper, Scissors - Lizard Spock Edition
+
 VALID_CHOICES = {
   "r" => "rock",
   "p" => "paper",
