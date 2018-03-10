@@ -75,29 +75,29 @@ No
 
 ### Bonus Features
 1. Add `Lizard` and `Spock` to the game
-  * The game will add 7 game rules, a total of 10 rules:
-  ```
-  Game Rules:
-  1. rock beats scissors
-  2. rock beats lizard
-  3. paper beats rock
-  4. paper beats spock
-  5. scissors beats paper
-  6. scissors beats lizard
-  7. lizard beats paper
-  8. lizard beats spock
-  9. spock beats rock
-  10. spock beats scissors
-  ```
+    * The game will add 7 game rules, a total of 10 rules:
+    ```
+    Game Rules:
+    1. rock beats scissors
+    2. rock beats lizard
+    3. paper beats rock
+    4. paper beats spock
+    5. scissors beats paper
+    6. scissors beats lizard
+    7. lizard beats paper
+    8. lizard beats spock
+    9. spock beats rock
+    10. spock beats scissors
+    ```
 
 2. Update how to input choices. User can type:
-  * "r" - "rock"
-  * "p" - "paper"
-  * "sc" - "scissors"
-  * "l" - "lizard"
-  * "sp" - "spock"
+    * "r" - "rock"
+    * "p" - "paper"
+    * "sc" - "scissors"
+    * "l" - "lizard"
+    * "sp" - "spock"
 
-  Also updated case-insensitive user input. User can type uppercase, capitalized, lowercase input.
+    Also updated case-insensitive user input. User can type uppercase, capitalized, lowercase input.
 
 3. Keep score of the player's and computer's wins.
-  * First to reach 5 points will be the grand winner
+    * First to reach 5 points will be the grand winner
