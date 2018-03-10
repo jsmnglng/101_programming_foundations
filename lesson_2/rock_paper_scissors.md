@@ -49,6 +49,7 @@ No
 
 ### Data Structure:
 * Array
+* Hash
 
 ### Algorithm
 ```
