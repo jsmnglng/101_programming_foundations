@@ -16,3 +16,7 @@ end
 flinstones.map! { |name| name[0, 3] }
 
 p flinstones
+
+# or
+
+flintstones.map { |name| name[0..2] }
