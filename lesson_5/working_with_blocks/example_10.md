@@ -23,5 +23,5 @@ end
 | 3 | method call (`size`) | Return value of `to_s` | None | Integer | Yes, used to determine return value of `==` |
 | 4 | method call (`+`) | Object on left side of `+` | None | Integer | Yes, used to determine inner block's return value |
 | 6 | method call (`map`) | Element of sub-array | None | New array | Yes, used to determine inner block's return value |
-| 6-8 | innermost block execution | Element of sub-array | None | New array | Yes, used by `map` |
+| 6-8 | innermost block execution | Element of sub-array | None | Integer or array | Yes, used by `map` |
 | 3- 8| conditional (`if`) | Element of sub-array | None | Integer or array | Yes, used to determine innermost block's return value |
